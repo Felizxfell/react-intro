@@ -1,0 +1,18 @@
+.boton {
+    float: right;
+    width: 64px;
+    height: 64px;
+    font-weight: 400;
+    font-size: 40px;
+    border-radius: 40px;
+    border: 0px;    
+}
+
+.boton:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+.box-boton {
+    justify-content: flex-end;
+    display: flex;
+}
