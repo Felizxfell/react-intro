@@ -2,16 +2,38 @@ import React from 'react'
 import AppUI from './AppUI'
 // import "./App.css";
 
-const defaultTodos = [
-  { text: 'Cortar cebolla', completed: false },
-  { text: 'Tormar el curso de intro a react', completed: true },
-  { text: 'Llorar con la llorona', completed: false },
-  { text: 'LALALALAA', completed: false },
-];
+const useLocalStorage = (itemName, initValue) => {    
+  if (!!localStorage.getItem(itemName)){
+    initValue = JSON.parse(localStorage.getItem(itemName))
+  } else {
+    localStorage.setItem(itemName, JSON.stringify(initValue))
+    initValue = JSON.parse(localStorage.getItem(itemName))
+  }
+
+  const [item, setItem] = React.useState(initValue);
+  
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem))
+    setItem(newItem);    
+  }
+
+  return [
+    item,
+    saveItem
+  ];
+}
 
 function App() {
-  // Estado inicial de nuestros TODOs
-  const [todos, setTodos] = React.useState(defaultTodos);
+  // listTodos = [
+  //   { text: 'Cortar cebolla', completed: false },
+  //   { text: 'Tormar el curso de intro a react', completed: true },
+  //   { text: 'Llorar con la llorona', completed: false },
+  //   { text: 'LALALALAA', completed: false },
+  // ];
+
+  // Estado inicial de nuestros TODOs  
+  const [todos, saveTodoList] = useLocalStorage('todoList', []);
+
   const [searchValue, setSearchValue] = React.useState('');
   // Cantidad de TODOs completados
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -36,16 +58,17 @@ function App() {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodoList(newTodos);
   };
 
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodoList(newTodos);
   };
   
+
   return (
     <AppUI
       totalTodos={totalTodos}
