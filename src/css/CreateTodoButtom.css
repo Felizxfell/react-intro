@@ -1,4 +1,5 @@
 .boton {
+    position: static;
     float: right;
     width: 64px;
     height: 64px;
@@ -6,12 +7,15 @@
     font-size: 40px;
     border-radius: 40px;
     border: 0px;
-    position: fixed;
     bottom: 365px;
+    z-index: 2;
+    transform: rotate(0);
+    transition: .3s ease;
 }
 
 .boton:hover {
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(218, 218, 218);    
+    transform: rotate(224deg);
 }
 
 .box-boton {

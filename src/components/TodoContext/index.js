@@ -13,6 +13,9 @@ const TodoProvider = props => {
       } = useLocalStorage('todoList', []);
     
       const [searchValue, setSearchValue] = React.useState('');
+
+      const [toggleModal, setToggleModal] = React.useState(false)
+
       // Cantidad de TODOs completados
       const completedTodos = todos.filter(todo => !!todo.completed).length;
       // Cantidad total de TODOs
@@ -32,6 +35,15 @@ const TodoProvider = props => {
         });
       }
     
+      const addToDo = (text) => {
+        const newTodos = [...todos];
+        newTodos.push({
+          text,
+          completed: false
+        })
+        saveTodoList(newTodos)
+      }
+
       const completeTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
         const newTodos = [...todos];
@@ -57,6 +69,9 @@ const TodoProvider = props => {
             searchedTodos,
             completeTodo,
             deleteTodo,
+            toggleModal,
+            setToggleModal,
+            addToDo,
         }}>
             {props.children}
         </TodoContext.Provider>

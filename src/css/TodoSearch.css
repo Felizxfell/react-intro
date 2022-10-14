@@ -1,5 +1,5 @@
 .inputsearch {
-    border: 2px black solid;
+    border: 0px;
     border-radius: 25px;
     height: 40px;
     width: 92%;
@@ -15,4 +15,8 @@
 .inputsearch::placeholder {
     padding-left: 5px;
     color: black;
+}
+
+.inputsearch:focus {
+    border: 1px rgba(255, 255, 255, 0.788) solid;
 }

@@ -1,10 +1,18 @@
 import React from 'react'
 import '../css/CreateTodoButtom.css'
 
-function CreateTodoButtom() {
+function CreateTodoButtom(props) {
+  const {
+    setToggleModal
+  } = props
+
+  const addToDo = () => {    
+    setToggleModal(prevState => !prevState)
+  }
+
   return (
     <div className='box-boton'>
-      <button className='boton' onClick={() => console.log('click')}>+</button>
+      <button className='boton' onClick={addToDo}>+</button>
     </div>
   )
 }
