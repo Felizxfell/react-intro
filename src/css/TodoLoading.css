@@ -1,0 +1,66 @@
+.load-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background: white;
+    border: 1px solid #e5e6e9;
+    border-radius: 5px;
+    /* max-width: 769px; */
+    padding: 1rem;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+}
+
+.load-background {
+    /* animation-name: skeletonloaging;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; */
+    animation: skeletonloaging 2s linear infinite alternate;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    min-height: 100px;
+}
+
+@keyframes skeletonloaging {
+    0% {        
+        background-color: hsl(200, 20%, 70%);
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {        
+        background-color: hsl(200, 20%, 70%);
+        background-position: 0% 50%;
+    }
+}
+
+.bar {
+    height: 45px;
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.mask {
+    background: white;
+    width: 100%;
+}
+
+.thick {
+    height: 1.5rem;
+}
+
+.thin {
+    height: 0.5rem;
+}
+
+/* Sin datos */
+.sindata-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
