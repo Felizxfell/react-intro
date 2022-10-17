@@ -3,10 +3,10 @@ form {
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    margin-left: 300px;
-    margin-right: 300px;
-    padding-left: 10%;
-    padding-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     background-color: #fff;
     color: black;
     border-radius: 15px;
@@ -23,7 +23,7 @@ textarea {
     box-shadow: inset -2px -5px 18px -4px rgba(0, 0, 0, 0.75);
     padding: 10px 15px 3px 15px;
     margin-bottom: 20px;
-    width: calc(100% - 15px) !important;
+    width: calc(100% - 35px) !important;
 }
 
 .todoform-button {
