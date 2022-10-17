@@ -15,7 +15,7 @@
     transition: .3s ease;
 }
 
-.boton:hover {
+.boton:focus {
     background-color: #1c59a8d0;
     transform: rotate(224deg);
 }
