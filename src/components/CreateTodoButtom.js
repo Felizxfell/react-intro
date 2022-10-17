@@ -12,7 +12,9 @@ function CreateTodoButtom(props) {
 
   return (
     <div className='box-boton'>
-      <button className='boton' onClick={addToDo}>+</button>
+      <button className='boton' onClick={addToDo}>
+        <i class="las la-plus"></i>
+      </button>
     </div>
   )
 }
