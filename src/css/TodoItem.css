@@ -60,10 +60,10 @@
     margin-right: 5px;
 }
 
-.icon-check:hover {
+.icon-check-active {
     color: chartreuse;
 }
 
-.icon-check-active {
-    color: chartreuse;
+.icon-check-false {
+    color: white;
 }
