@@ -4,11 +4,24 @@ import { TodoProvider } from './TodoContext';
 
 function App()
 {
+  const [state, setState] = React.useState('estado compartido');
+  // return (
+  //   <TodoProvider>
+  //     <AppUI />
+  //   </TodoProvider>
+  // );
   return (
-    <TodoProvider>
-      <AppUI />
-    </TodoProvider>
-  );
+    <React.Fragment>
+      <TodoHeader>
+        <TodoCounter />
+        <TodoSearch />
+      </TodoHeader>
+
+      <TodoList>
+        <TodoItem state={state} />
+      </TodoList>
+    </React.Fragment>
+  )
 }
 
 const TodoHeader = ({ children }) => {
