@@ -1,14 +1,11 @@
 import React from 'react'
-import { TodoContext } from './TodoContext'
 import '../css/TodoForm.css'
 
-const TodoForm = () => {
+const TodoForm = ({
+    addToDo,
+    setToggleModal
+}) => {
     const [todoValue, setTodoValue] = React.useState('')
-
-    const { 
-        addToDo,
-        setToggleModal
-    } = React.useContext(TodoContext)
 
     const onChange = event => {
         setTodoValue(event.target.value)
@@ -21,7 +18,7 @@ const TodoForm = () => {
     const submitTodo = event => {
         event.preventDefault()
 
-        if (!!todoValue.trim()){
+        if (!!todoValue.trim()) {
             addToDo(todoValue)
             setToggleModal(false)
         }
