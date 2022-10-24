@@ -11,8 +11,8 @@ function TodoList(props)
         onLoading,
         onEmpty,
         render,
-    } = props
-
+    } = props;
+    
     return (
         <section>
             {error && onError()}

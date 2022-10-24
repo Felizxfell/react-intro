@@ -17,7 +17,7 @@ const TodosLoading = () => {
     )
 }
 
-export { TodoLoading };
+export { TodosLoading };
 
 const TodosEmpty = () => {
     return (

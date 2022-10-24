@@ -41,7 +41,7 @@ function App() {
         />
       </TodoHeader>
 
-      <TodoList>
+      <TodoList
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
@@ -57,7 +57,7 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
-      </TodoList>
+      />
 
       {toggleModal && (
         <Modal>
