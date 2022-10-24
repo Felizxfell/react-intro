@@ -1,4 +1,8 @@
-.titulo{    
-    text-align: center;    
+.titulo {
+    text-align: center;
     font-size: 24px;
+}
+
+.counter-loading {
+    opacity: 24%;
 }

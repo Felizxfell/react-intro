@@ -7,7 +7,7 @@
     font-weight: 400;
     justify-content: center;
     margin-bottom: 20px;
-    box-shadow: inset -2px -5px 18px -4px rgba(0,0,0,0.75);
+    box-shadow: inset -2px -5px 18px -4px rgba(0, 0, 0, 0.75);
     padding: 3px 15px 3px 15px;
     color: black;
 }
@@ -19,4 +19,8 @@
 
 .inputsearch:focus {
     border: 1px rgba(255, 255, 255, 0.788) solid;
+}
+
+.inputsearch:disabled {
+    opacity: 25%;
 }

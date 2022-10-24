@@ -10,18 +10,25 @@ function TodoList(props)
         onError,
         onLoading,
         onEmpty,
+        onEmptySearchResults,
         render,
+        totalTodos,
+        searchText,
     } = props;
-    
+
+    const renderFunc = props.children || render;
+
     return (
         <section>
             {error && onError()}
             {loading && onLoading()}
 
-            {(!loading && !searchedTodos.length) && onEmpty()}
+            {(!loading && !totalTodos) && onEmpty()}
+
+            {(!!totalTodos && !searchedTodos.length) && onEmptySearchResults(searchText)}
 
             <ul className='lista'>
-                {searchedTodos.map(render)}                
+                {searchedTodos.map(renderFunc)}
             </ul>
         </section>
     )
