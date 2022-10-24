@@ -7,23 +7,25 @@ import TodoList from '../TodoList';
 import TodoItem from '../TodoItem';
 import TodoForm from '../TodoForm';
 import CreateTodoButtom from "../CreateTodoButtom";
-import { TodoLoading, TodosEmpty, TodosError } from '../TodoLoading';
+import { TodosLoading, TodosEmpty, TodosError } from '../TodoLoading';
 import Modal from '../../Modal';
 
 function App() {
   const {
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+
     error,
     loading,
     searchedTodos,
     completeTodo,
     deleteTodo,
+
     toggleModal,
     addToDo,
     setToggleModal,
-    totalTodos,
-    completedTodos,
-    searchValue,
-    setSearchValue,
   } = useTodos()
 
   return (
@@ -40,22 +42,26 @@ function App() {
       </TodoHeader>
 
       <TodoList>
-        {error && <TodosError />}
-        {loading && <TodoLoading />}
-        {(!loading && !searchedTodos.length) && <TodosEmpty />}
-        {searchedTodos.map((todo) => (
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        onError={() => <TodosError />}
+        onLoading={() => <TodosLoading />}
+        onEmpty={() => <TodosEmpty />}
+        render={todo => (
           <TodoItem
             key={todo.text}
-            prop={todo}
+            text={todo.text}
+            completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
-        ))}
+        )}
       </TodoList>
 
       {toggleModal && (
         <Modal>
-          <TodoForm 
+          <TodoForm
             addToDo={addToDo}
             setToggleModal={setToggleModal}
           />

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/TodoLoading.css'
 
-const TodoLoading = () => {
+const TodosLoading = () => {
     return (
         <div className='load-container'>
             <div className='load-background'>
