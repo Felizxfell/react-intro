@@ -20,10 +20,8 @@ function TodoList(props)
 
             {(!loading && !searchedTodos.length) && onEmpty()}
 
-            {searchedTodos.map(render)}
-
             <ul className='lista'>
-                {props.children}
+                {searchedTodos.map(render)}                
             </ul>
         </section>
     )
