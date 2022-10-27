@@ -11,7 +11,8 @@ import { TodosLoading, TodosEmpty, TodosError } from '../TodoLoading';
 import Modal from '../../Modal';
 import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
-function App() {
+function App()
+{
   const {
     totalTodos,
     completedTodos,
@@ -53,17 +54,7 @@ function App() {
         onLoading={() => <TodosLoading />}
         onEmpty={() => <TodosEmpty />}
         onEmptySearchResults={(searchText) => <p>No hay resultados para {searchText}</p>}
-      // render={todo => (
-      //   <TodoItem
-      //     key={todo.text}
-      //     text={todo.text}
-      //     completed={todo.completed}
-      //     onComplete={() => completeTodo(todo.text)}
-      //     onDelete={() => deleteTodo(todo.text)}
-      //   />
-      // )}
-      >
-        {todo => (
+        render={todo => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -72,6 +63,16 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
+      >
+        {/* {todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        )} */}
       </TodoList>
 
       {toggleModal && (
