@@ -8,6 +8,7 @@ const useTodos = () => {
     saveItem: saveTodoList,
     loading,
     error,
+    sincronizeItem: sincronizeTodos,
   } = useLocalStorage('todoList', []);
 
   const [searchValue, setSearchValue] = React.useState('');
@@ -69,6 +70,7 @@ const useTodos = () => {
     toggleModal,
     setToggleModal,
     addToDo,
+    sincronizeTodos
   };
 }
 

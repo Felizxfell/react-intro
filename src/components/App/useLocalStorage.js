@@ -5,6 +5,7 @@ const useLocalStorage = (itemName, initValue) => {
   const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initValue);
+  const [sincronizedItem, setSincronizedItem] = React.useState(true);
 
   React.useEffect(() => {
     // Simulamos un segundo de delay de carga 
@@ -28,9 +29,10 @@ const useLocalStorage = (itemName, initValue) => {
       } finally {
         // También podemos utilizar la última parte del try/cath (finally) para terminar la carga
         setLoading(false);
+        setSincronizedItem(true);
       }
     }, 1000);
-  }, []);
+  }, [sincronizedItem]);
 
   const saveItem = (newItem) => {
     try {
@@ -41,11 +43,17 @@ const useLocalStorage = (itemName, initValue) => {
     }
   }
 
+  const sincronizeItem = () => {
+    setLoading(true);
+    setSincronizedItem(false);
+  };
+
   return {
     item,
     saveItem,
     loading,
     error,
+    sincronizeItem
   };
 }
 
