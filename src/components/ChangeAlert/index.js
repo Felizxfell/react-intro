@@ -1,15 +1,14 @@
 import React from 'react';
-import { withStorageListener } from './withStorageListener';
+import { useStorageListener } from './useStorageListener';
 import './ChangeAlert.css'
 
-function ChangeAlert({ show, toggleShow })
-{
-    if (show)
-    {
+function ChangeAlert({ sincronize }) {
+    const {  show, toggleShow } = useStorageListener({ sincronize })
+    if (show) {
         return (
             <div className='change-conainer'>
                 <div className='change-box'>
-                    <p>Hubo cambios</p>
+                    <p>Parece ser que hay cambios provenientes de otra ventana, debes sincronizar tu informaci&oacute;n</p>
                     <button
                         onClick={toggleShow}
                     >
@@ -22,6 +21,4 @@ function ChangeAlert({ show, toggleShow })
     return null
 }
 
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
-
-export { ChangeAlertWithStorageListener };
+export default ChangeAlert;

@@ -9,10 +9,9 @@ import TodoForm from '../TodoForm';
 import CreateTodoButtom from "../CreateTodoButtom";
 import { TodosLoading, TodosEmpty, TodosError } from '../TodoLoading';
 import Modal from '../../Modal';
-import { ChangeAlertWithStorageListener } from '../ChangeAlert';
+import ChangeAlert from '../ChangeAlert';
 
-function App()
-{
+function App() {
   const {
     totalTodos,
     completedTodos,
@@ -88,7 +87,7 @@ function App()
         setToggleModal={setToggleModal}
       />
 
-      <ChangeAlertWithStorageListener
+      <ChangeAlert
         sincronize={sincronizeTodos}
       />
     </React.Fragment>
