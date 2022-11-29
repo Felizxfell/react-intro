@@ -1,13 +1,13 @@
 {
-  "main.css": "/react-intro/static/css/main.4bab4b15.chunk.css",
-  "main.js": "/react-intro/static/js/main.e8aeb960.chunk.js",
-  "main.js.map": "/react-intro/static/js/main.e8aeb960.chunk.js.map",
-  "static/js/1.bee36d96.chunk.js": "/react-intro/static/js/1.bee36d96.chunk.js",
-  "static/js/1.bee36d96.chunk.js.map": "/react-intro/static/js/1.bee36d96.chunk.js.map",
-  "runtime~main.js": "/react-intro/static/js/runtime~main.bef8bd6f.js",
-  "runtime~main.js.map": "/react-intro/static/js/runtime~main.bef8bd6f.js.map",
-  "static/css/main.4bab4b15.chunk.css.map": "/react-intro/static/css/main.4bab4b15.chunk.css.map",
-  "index.html": "/react-intro/index.html",
-  "precache-manifest.d901d51888885153288d7a30b90fe80f.js": "/react-intro/precache-manifest.d901d51888885153288d7a30b90fe80f.js",
-  "service-worker.js": "/react-intro/service-worker.js"
+  "files": {
+    "main.css": "/react-intro/static/css/main.fb2d857c.css",
+    "main.js": "/react-intro/static/js/main.187e06d5.js",
+    "index.html": "/react-intro/index.html",
+    "main.fb2d857c.css.map": "/react-intro/static/css/main.fb2d857c.css.map",
+    "main.187e06d5.js.map": "/react-intro/static/js/main.187e06d5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb2d857c.css",
+    "static/js/main.187e06d5.js"
+  ]
 }
