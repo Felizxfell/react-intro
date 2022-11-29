@@ -42,9 +42,11 @@
     overflow: hidden;
     white-space: nowrap;
     text-transform: uppercase;
-    background-color: rgb(10, 161, 116);
+    background-color: #111827;
+    color: white;
 }
 
 .change-box button:hover {
     background-color: rgb(218, 218, 218);
+    color: #111827;
 }
