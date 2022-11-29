@@ -84,6 +84,7 @@ function App() {
       )}
 
       <CreateTodoButtom
+        toggleModal={toggleModal}
         setToggleModal={setToggleModal}
       />
 
