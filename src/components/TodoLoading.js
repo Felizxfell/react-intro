@@ -22,7 +22,7 @@ export { TodosLoading };
 const TodosEmpty = () => {
     return (
         <div className='sindata-container'>
-            <p>¡Crea tu primer TODO!</p>
+            <p>¡Crea tu primer TO DO!</p>
         </div>
     )
 }

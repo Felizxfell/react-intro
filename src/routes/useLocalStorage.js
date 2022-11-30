@@ -1,7 +1,7 @@
-import React from 'react'
+import { useReducer, useEffect } from 'react'
 
 const useLocalStorage = (itemName, initValue) => {
-  const [state, dispatch] = React.useReducer(reducer, initialState({ initValue }))
+  const [state, dispatch] = useReducer(reducer, initialState({ initValue }))
 
   const {
     sincronizedItem,
@@ -27,7 +27,7 @@ const useLocalStorage = (itemName, initValue) => {
     type: actionTypes.SINCRONIZE
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Simulamos un segundo de delay de carga 
     setTimeout(() => {
       // Manejamos la tarea dentro de un try/catch por si ocurre algún error

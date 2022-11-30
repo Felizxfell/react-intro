@@ -10,7 +10,7 @@ const useTodos = () => {
     error,
     sincronizeItem: sincronizeTodos,
     sincronizedItem: sincronizeditemstatus
-  } = useLocalStorage('todoList', []);
+  } = useLocalStorage('todoListv2', []);
 
   const [searchValue, setSearchValue] = React.useState('');
 
@@ -27,8 +27,7 @@ const useTodos = () => {
   // Lógica para filtrar
   if (!searchValue.length >= 1) {
     searchedTodos = todos;
-  } else
-  {
+  } else {
     searchedTodos = todos.filter(todo => {
       const todoText = todo.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
@@ -38,8 +37,10 @@ const useTodos = () => {
 
   const addToDo = (text) => {
     if (sincronizeditemstatus) {
+      const id = newTodoId(todos)
       const newTodos = [...todos];
       newTodos.push({
+        id,
         text,
         completed: false
       })
@@ -47,18 +48,18 @@ const useTodos = () => {
     }
   }
 
-  const completeTodo = (text) => {
+  const completeTodo = (id) => {
     if (sincronizeditemstatus) {
-      const todoIndex = todos.findIndex(todo => todo.text === text);
+      const todoIndex = todos.findIndex(todo => todo.id === id);
       const newTodos = [...todos];
       newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
       saveTodoList(newTodos);
     }
   };
 
-  const deleteTodo = (text) => {
+  const deleteTodo = (id) => {
     if (sincronizeditemstatus) {
-      const todoIndex = todos.findIndex(todo => todo.text === text);
+      const todoIndex = todos.findIndex(todo => todo.id === id);
       const newTodos = [...todos];
       newTodos.splice(todoIndex, 1);
       saveTodoList(newTodos);
@@ -83,3 +84,12 @@ const useTodos = () => {
 }
 
 export default useTodos;
+
+const newTodoId = (todolist) => {
+  if (!todolist.length){
+    return 1;
+  }
+  const idlist = todolist.map(todo => todo.id)
+  const idMax = Math.max(...idlist)
+  return idMax + 1;
+}
