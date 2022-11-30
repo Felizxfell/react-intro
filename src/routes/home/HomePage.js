@@ -1,15 +1,15 @@
 import React from 'react'
 import useTodos from '../useTodos';
-import TodoHeader from '../../components/TodoHeader'
-import TodoCounter from '../../components/TodoCounter'
-import TodoSearch from '../../components/TodoSearch'
-import TodoList from '../../components/TodoList';
-import TodoItem from '../../components/TodoItem';
-import TodoForm from '../../components/TodoForm';
-import CreateTodoButtom from "../../components/CreateTodoButtom";
-import { TodosLoading, TodosEmpty, TodosError } from '../../components/TodoLoading';
+import TodoHeader from '@comp/TodoHeader'
+import TodoCounter from '@comp/TodoCounter'
+import TodoSearch from '@comp/TodoSearch'
+import TodoList from '@comp/TodoList';
+import TodoItem from '@comp/TodoItem';
+import TodoForm from '@comp/TodoForm';
+import CreateTodoButtom from "@comp/CreateTodoButtom";
+import { TodosLoading, TodosEmpty, TodosError } from '@comp/TodoLoading';
 import Modal from '../../Modal';
-import ChangeAlert from '../../components/ChangeAlert';
+import ChangeAlert from '@comp/ChangeAlert';
 
 export default function HomePage() {
   const {
@@ -53,25 +53,26 @@ export default function HomePage() {
         onLoading={() => <TodosLoading />}
         onEmpty={() => <TodosEmpty />}
         onEmptySearchResults={(searchText) => <p>No hay resultados para {searchText}</p>}
-        render={todo => (
+        // render={todo => (
+        //   <TodoItem
+        //     key={todo.text}
+        //     text={todo.text}
+        //     completed={todo.completed}
+        //     onComplete={() => completeTodo(todo.text)}
+        //     onDelete={() => deleteTodo(todo.text)}
+        //   />
+        // )}
+      >
+        {todo => (
           <TodoItem
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
+            onEdit={() => console.log('Editar to do')}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
-      >
-        {/* {todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        )} */}
       </TodoList>
 
       {toggleModal && (
