@@ -1,17 +1,17 @@
 import React from 'react'
-import useTodos from './useTodos';
-import TodoHeader from '../TodoHeader'
-import TodoCounter from '../TodoCounter'
-import TodoSearch from '../TodoSearch'
-import TodoList from '../TodoList';
-import TodoItem from '../TodoItem';
-import TodoForm from '../TodoForm';
-import CreateTodoButtom from "../CreateTodoButtom";
-import { TodosLoading, TodosEmpty, TodosError } from '../TodoLoading';
+import useTodos from '../useTodos';
+import TodoHeader from '../../components/TodoHeader'
+import TodoCounter from '../../components/TodoCounter'
+import TodoSearch from '../../components/TodoSearch'
+import TodoList from '../../components/TodoList';
+import TodoItem from '../../components/TodoItem';
+import TodoForm from '../../components/TodoForm';
+import CreateTodoButtom from "../../components/CreateTodoButtom";
+import { TodosLoading, TodosEmpty, TodosError } from '../../components/TodoLoading';
 import Modal from '../../Modal';
-import ChangeAlert from '../ChangeAlert';
+import ChangeAlert from '../../components/ChangeAlert';
 
-function App() {
+export default function HomePage() {
   const {
     totalTodos,
     completedTodos,
@@ -94,5 +94,3 @@ function App() {
     </React.Fragment>
   );
 }
-
-export default App;
