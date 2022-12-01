@@ -24,6 +24,11 @@ textarea {
     padding: 10px 15px 3px 15px;
     margin-bottom: 20px;
     width: calc(100% - 35px) !important;
+    min-height: 50px;
+}
+
+.button-container {
+    margin-top: 10px;
 }
 
 .todoform-button {

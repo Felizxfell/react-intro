@@ -1,17 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import useTodos from '../useTodos';
 import TodoHeader from '@comp/TodoHeader'
 import TodoCounter from '@comp/TodoCounter'
 import TodoSearch from '@comp/TodoSearch'
 import TodoList from '@comp/TodoList';
 import TodoItem from '@comp/TodoItem';
-import TodoForm from '@comp/TodoForm';
 import CreateTodoButtom from "@comp/CreateTodoButtom";
+import ChangeAlert from '@comp/ChangeAlert';
 import { TodosLoading, TodosEmpty, TodosError } from '@comp/TodoLoading';
 import Modal from '../../Modal';
-import ChangeAlert from '@comp/ChangeAlert';
 
 export default function HomePage() {
+  const navigate = useNavigate()
   const {
     totalTodos,
     completedTodos,
@@ -23,10 +24,7 @@ export default function HomePage() {
     searchedTodos,
     completeTodo,
     deleteTodo,
-
-    toggleModal,
-    addToDo,
-    setToggleModal,
+    
     sincronizeTodos,
   } = useTodos()
 
@@ -68,25 +66,24 @@ export default function HomePage() {
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onEdit={() => console.log('Editar to do')}
+            onEdit={() => navigate('/edit/' + todo.id)}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />
         )}
       </TodoList>
 
-      {toggleModal && (
+      {/* {toggleModal && (
         <Modal>
           <TodoForm
             addToDo={addToDo}
             setToggleModal={setToggleModal}
           />
         </Modal>
-      )}
+      )} */}
 
       <CreateTodoButtom
-        toggleModal={toggleModal}
-        setToggleModal={setToggleModal}
+        onClick={() => navigate('/new') }
       />
 
       <ChangeAlert

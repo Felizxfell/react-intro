@@ -1,9 +1,16 @@
 import React from 'react'
+import TodoForm from '@comp/TodoForm';
+import useTodos from '../useTodos';
 
 export default function EditTodoPage() {
+  const { addToDo } = useTodos()
   return (
     <>
-        <div>EditTodoPage</div>
+      <TodoForm
+        label="Edita tu To Do"
+        submitext="Editar"
+        submitEvent={addToDo}
+      />
     </>
   )
 }
