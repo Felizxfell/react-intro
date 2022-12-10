@@ -9,7 +9,6 @@ import TodoItem from '@comp/TodoItem';
 import CreateTodoButtom from "@comp/CreateTodoButtom";
 import ChangeAlert from '@comp/ChangeAlert';
 import { TodosLoading, TodosEmpty, TodosError } from '@comp/TodoLoading';
-import Modal from '../../Modal';
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -66,7 +65,12 @@ export default function HomePage() {
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onEdit={() => navigate('/edit/' + todo.id)}
+            onEdit={() => {
+              navigate('/edit/' + todo.id,
+              {
+                state: { todo }
+              })
+            }}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />

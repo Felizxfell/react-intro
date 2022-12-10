@@ -14,8 +14,6 @@ const useTodos = () => {
 
   const [searchValue, setSearchValue] = React.useState('');
 
-  const [toggleModal, setToggleModal] = React.useState(false)
-
   // Cantidad de TODOs completados
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   // Cantidad total de TODOs
@@ -48,11 +46,25 @@ const useTodos = () => {
     }
   }
 
+  const getTodo = id => {
+    const todoIndex = todos.findIndex(todo => todo.id === id)
+    return todos[todoIndex]
+  }
+
   const completeTodo = (id) => {
     if (sincronizeditemstatus) {
       const todoIndex = todos.findIndex(todo => todo.id === id);
       const newTodos = [...todos];
       newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+      saveTodoList(newTodos);
+    }
+  };
+
+  const editTodo = (id, newtext) => {
+    if (sincronizeditemstatus) {
+      const todoIndex = todos.findIndex(todo => todo.id === id);
+      const newTodos = [...todos];
+      newTodos[todoIndex].text = newtext;
       saveTodoList(newTodos);
     }
   };
@@ -74,10 +86,10 @@ const useTodos = () => {
     searchValue,
     setSearchValue,
     searchedTodos,
+    getTodo,
     completeTodo,
+    editTodo,
     deleteTodo,
-    toggleModal,
-    setToggleModal,
     addToDo,
     sincronizeTodos
   };

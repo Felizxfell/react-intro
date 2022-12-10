@@ -2,9 +2,9 @@ import { React, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../css/TodoForm.css'
 
-const TodoForm = ({ label, submitext, submitEvent }) => {
+const TodoForm = ({ label, submitext, submitEvent, defaultTodoText }) => {
     const navigate = useNavigate()    
-    const [todoValue, setTodoValue] = useState('')
+    const [todoValue, setTodoValue] = useState(defaultTodoText || '')    
 
     const onChange = event => {
         setTodoValue(event.target.value)
