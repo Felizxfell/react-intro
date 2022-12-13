@@ -1,21 +1,28 @@
-import React from 'react'
-import { TodoContext } from './TodoContext';
+import React, { useEffect } from 'react'
 import '../css/TodoSearch.css'
 
-function TodoSearch() {
-
-  const { searchValue, setSearchValue } = React.useContext(TodoContext)
-
+function TodoSearch({ searchValue, setSearchValue, loading, searchParams, setSearchParams }) {  
   const onSearchValueChange = (event) => {
-    setSearchValue(event.target.value);
-  };
+    const value =  event.target.value    
+    setSearchValue(value);
+    setSearchParams({ search: value })
+  }
+
+  useEffect(() => {
+    const search = searchParams.get('search')
+    if (!!search) {
+      setSearchValue(search);
+    }
+  }, [searchParams, setSearchValue])
 
   return (
     <input
       className='inputsearch'
       value={searchValue}
       onChange={onSearchValueChange}
-      placeholder="Serach here..." />
+      placeholder="Serach here..."
+      disabled={loading}
+    />
   )
 }
 

@@ -1,19 +1,22 @@
 import React from 'react'
 import '../css/TodoItem.css'
+import { HiOutlineCheck, HiOutlinePencil, HiOutlineTrash } from "react-icons/hi";
 
-function TodoItem(props)
-{
-    const { prop, onComplete, onDelete } = props
+function TodoItem(props) {
+    const { completed, text, onEdit, onComplete, onDelete } = props
     return (
         <li className='item'>
-            <span className={`icon icon-check ${prop.completed ? 'icon-check-active' : 'icon-check-false'}`} onClick={onComplete}>
-                <i className="las la-check"></i>
+            <span className={`icon icon-check ${completed ? 'icon-check-active' : 'icon-check-false'}`} onClick={onComplete}>
+                <HiOutlineCheck />
             </span>
-            <p className={`item-p ${prop.completed && 'item-p-complete'}`}>
-                {prop.text}
+            <p className={`item-p ${completed && 'item-p-complete'}`}>
+                {text}
             </p>
+            <span className='edit' onClick={onEdit}>
+                <HiOutlinePencil />
+            </span>
             <span className='delete' onClick={onDelete}>
-                <i className="las la-trash"></i>
+                <HiOutlineTrash />
             </span>
         </li>
     )

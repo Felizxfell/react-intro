@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/TodoLoading.css'
 
-const TodoLoading = () => {
+const TodosLoading = () => {
     return (
         <div className='load-container'>
             <div className='load-background'>
@@ -17,12 +17,12 @@ const TodoLoading = () => {
     )
 }
 
-export { TodoLoading };
+export { TodosLoading };
 
 const TodosEmpty = () => {
     return (
         <div className='sindata-container'>
-            <p>¡Crea tu primer TODO!</p>
+            <p>¡Crea tu primer TO DO!</p>
         </div>
     )
 }

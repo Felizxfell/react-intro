@@ -1,35 +1,30 @@
-import React from 'react'
-import { TodoContext } from './TodoContext'
+import { React, useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../css/TodoForm.css'
 
-const TodoForm = () => {
-    const [todoValue, setTodoValue] = React.useState('')
-
-    const { 
-        addToDo,
-        setToggleModal
-    } = React.useContext(TodoContext)
+const TodoForm = ({ label, submitext, submitEvent, defaultTodoText }) => {
+    const navigate = useNavigate()    
+    const [todoValue, setTodoValue] = useState(defaultTodoText || '')    
 
     const onChange = event => {
         setTodoValue(event.target.value)
     }
 
     const cancelar = () => {
-        setToggleModal(false)
+        navigate('/')
     }
 
     const submitTodo = event => {
         event.preventDefault()
-
-        if (!!todoValue.trim()){
-            addToDo(todoValue)
-            setToggleModal(false)
+        if (!!todoValue.trim()) {
+            submitEvent(todoValue)
+            navigate('/')
         }
     }
 
     return (
         <form onSubmit={submitTodo}>
-            <label>Escribe tu nuevo TODO</label>
+            <label>{label}</label>
             <textarea
                 value={todoValue}
                 onChange={onChange}
@@ -47,7 +42,7 @@ const TodoForm = () => {
                     type="submit"
                     className="todoform-button todoform-button-add"
                 >
-                    Añadir
+                    {submitext}
                 </button>
             </div>
         </form>

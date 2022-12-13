@@ -24,6 +24,11 @@ textarea {
     padding: 10px 15px 3px 15px;
     margin-bottom: 20px;
     width: calc(100% - 35px) !important;
+    min-height: 50px;
+}
+
+.button-container {
+    margin-top: 10px;
 }
 
 .todoform-button {
@@ -46,11 +51,11 @@ textarea {
 }
 
 .todoform-button-add {
-    background-color: #1c59a8;
+    background-color: #282c34;
     margin-left: 30px;
     color: white;
 }
 
 .todoform-button-add:hover {
-    background-color: #1c59a8b7;
+    background-color: #282c34b7;
 }
